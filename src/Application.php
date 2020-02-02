@@ -61,9 +61,9 @@ class Application
      * @param $sign
      * @return bool
      */
-    public function verifySign($rawData, $session_key, $sign)
+    public function verifySign($raw_data, $session_key, $sign)
     {
-        $unsign_str = $rawData . $session_key;
+        $unsign_str = $raw_data . $session_key;
         $my_sign = sha1($unsign_str);
         return $my_sign === $sign;
     }
