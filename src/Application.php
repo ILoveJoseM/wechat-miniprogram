@@ -56,7 +56,7 @@ class Application
 
     /**
      * 验签
-     * @param $rawData
+     * @param $raw_data
      * @param $session_key
      * @param $sign
      * @return bool
