@@ -97,3 +97,25 @@ use JoseChan\Wechat\MiniProgram\Application;
 $result = $mini_program->getWxaCodeUnLimit($scene);
 
 ````
+
+- 发送订阅消息
+
+````php
+<?php
+
+use JoseChan\Wechat\MiniProgram\Application;
+
+/** @var string $touser 用户openid */
+
+/** @var string $template_id 模版ID */
+
+/** @var Application $mini_program */
+
+/** @var string $result 图片的二进制流 */
+$result = $mini_program->sendSubscribeMsg($touser, $template_id, [
+    "number1"=>[
+        "value" => 12345
+    ]
+], "pages/index");
+
+````

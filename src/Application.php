@@ -143,6 +143,7 @@ class Application
 
     /**
      * 发送模版消息
+     * @deprecated  微信小程序即将废弃此接口，请使用订阅消息代替
      * @param $touser
      * @param $template_id
      * @param $from_id
@@ -172,6 +173,14 @@ class Application
 
     }
 
+    /**
+     * 发送订阅消息
+     * @param $touser
+     * @param $template_id
+     * @param array $data
+     * @param string $page
+     * @return bool
+     */
     public function sendSubscribeMsg($touser, $template_id, $data = [], $page = "")
     {
         $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/subscribe/send?access_token=" . $this->getAccessToken();
