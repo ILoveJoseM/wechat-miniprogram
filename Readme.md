@@ -105,6 +105,8 @@ $result = $mini_program->getWxaCodeUnLimit($scene);
 
 use JoseChan\Wechat\MiniProgram\Application;
 
+/** @var \Redis $redis */
+
 /** @var string $touser 用户openid */
 
 /** @var string $template_id 模版ID */
@@ -112,7 +114,7 @@ use JoseChan\Wechat\MiniProgram\Application;
 /** @var Application $mini_program */
 
 /** @var string $result 图片的二进制流 */
-$result = $mini_program->sendSubscribeMsg($touser, $template_id, [
+$result = $mini_program->bindRedis($redis)->sendSubscribeMsg($touser, $template_id, [
     "number1"=>[
         "value" => 12345
     ]
