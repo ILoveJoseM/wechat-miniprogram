@@ -172,6 +172,25 @@ class Application
 
     }
 
+    public function sendSubscribeMsg($touser, $template_id, $data = [], $page = "")
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/subscribe/send?access_token=" . $this->getAccessToken();
+        $post_data = [
+            "touser" => $touser,
+            "template_id" => $template_id,
+            "page" => $page,
+            "data" => $data,
+        ];
+        $result = $this->curl($url, $post_data, "POST", "JSON");
+        $data = json_decode($result, true);
+        if ($data['errcode'] == 0) {
+            return true;
+        } else {
+            return $data['errcode'];
+        }
+
+    }
+
     /**
      * 发送客服消息
      * @param $data
