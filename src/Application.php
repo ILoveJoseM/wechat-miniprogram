@@ -183,7 +183,7 @@ class Application
      */
     public function sendSubscribeMsg($touser, $template_id, $data = [], $page = "")
     {
-        $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/subscribe/send?access_token=" . $this->getAccessToken();
+        $url = "https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=" . $this->getAccessToken();
         $post_data = [
             "touser" => $touser,
             "template_id" => $template_id,
